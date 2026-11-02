@@ -97,7 +97,7 @@
 
 <div class="container">
     <div class="logo">best-<span>100</span></div>
-    <p>استخراج فوري لأفضل 100 نشاط تجاري مقفل جغرافياً عبر قوقل ماب</p>
+    <p>استخراج فوري للنشاط التجاري في المدينة عبر قوقل ماب</p>
     
     <div class="form-group">
         <label for="business">النشاط التجاري المطلق:</label>
@@ -109,7 +109,7 @@
         <input type="text" id="city" placeholder="مثال: Al Khobar, الخبر، الرياض" required>
     </div>
     
-    <button onclick="launchSearch()">تشغيل محرك الآلية (100 نتيجة)</button>
+    <button onclick="launchSearch()">تشغيل محرك الآلية</button>
     
     <footer>تطبيق مستقل مخصص لـ best-100</footer>
 </div>
@@ -123,14 +123,10 @@
             alert("يرجى إدخال البيانات المطلوبة لتشغيل الفرز.");
             return;
         }
-        
-        // استبدال المسافات بعلامة الزائد مباشرة لضمان قراءة قوقل ماب للغة العربية بشكل صحيح
-        var formattedBusiness = businessInput.replace(/\s+/g, '+');
-        var formattedCity = cityInput.replace(/\s+/g, '+');
-        
-        // بناء الرابط المباشر
-        var mapsUrl = "https://google.com" + formattedBusiness + "+in+" + formattedCity + "?hl=ar&num=100";
-        
+
+        var searchQuery = businessInput + " في " + cityInput;
+        var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(searchQuery) + "&hl=ar";
+
         window.open(mapsUrl, '_blank');
     }
 </script>
