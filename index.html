@@ -124,10 +124,11 @@
             return;
         }
         
-        var formattedBusiness = encodeURIComponent(businessInput);
-        var formattedCity = encodeURIComponent(cityInput);
+        // استبدال المسافات بعلامة الزائد مباشرة لضمان قراءة قوقل ماب للغة العربية بشكل صحيح
+        var formattedBusiness = businessInput.replace(/\s+/g, '+');
+        var formattedCity = cityInput.replace(/\s+/g, '+');
         
-        // بناء الرابط البرمجي لإجبار الخرائط على تحميل الفهرس الكامل
+        // بناء الرابط المباشر
         var mapsUrl = "https://google.com" + formattedBusiness + "+in+" + formattedCity + "?hl=ar&num=100";
         
         window.open(mapsUrl, '_blank');
