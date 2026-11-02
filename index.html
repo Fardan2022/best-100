@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>best-100 | مستخرج الخرائط الذكي</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a73e8;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+        .logo span {
+            color: #34a853;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 22px;
+            text-align: right;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+            font-size: 14px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+        input[type="text"]:focus {
+            border-color: #1a73e8;
+            background-color: #fff;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26,115,232,0.1);
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 16px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(26,115,232,0.2);
+        }
+        button:hover {
+            background-color: #1557b0;
+        }
+        footer {
+            margin-top: 35px;
+            font-size: 12px;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">best-<span>100</span></div>
+    <p>استخراج فوري لأفضل 100 نشاط تجاري مقفل جغرافياً عبر قوقل ماب</p>
+    
+    <div class="form-group">
+        <label for="business">النشاط التجاري المطلق:</label>
+        <input type="text" id="business" placeholder="مثال: Barbershop, صالون حلاقة، مقهى" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="city">المدينة المستهدفة:</label>
+        <input type="text" id="city" placeholder="مثال: Al Khobar, الخبر، الرياض" required>
+    </div>
+    
+    <button onclick="launchSearch()">تشغيل محرك الآلية (100 نتيجة)</button>
+    
+    <footer>تطبيق مستقل مخصص لـ best-100</footer>
+</div>
+
+<script>
+    function launchSearch() {
+        var businessInput = document.getElementById('business').value.trim();
+        var cityInput = document.getElementById('city').value.trim();
+        
+        if (businessInput === "" || cityInput === "") {
+            alert("يرجى إدخال البيانات المطلوبة لتشغيل الفرز.");
+            return;
+        }
+        
+        var formattedBusiness = encodeURIComponent(businessInput);
+        var formattedCity = encodeURIComponent(cityInput);
+        
+        // بناء الرابط البرمجي لإجبار الخرائط على تحميل الفهرس الكامل
+        var mapsUrl = "https://google.com" + formattedBusiness + "+in+" + formattedCity + "?hl=ar&num=100";
+        
+        window.open(mapsUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>
